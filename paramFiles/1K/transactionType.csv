@@ -1,2 +1,5 @@
 Type,Frequency
 TRANSFER,1
+PAYMENT,1
+CASH_IN,1
+CASH_OUT,1

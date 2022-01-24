@@ -524,6 +524,7 @@ public class AMLSim extends ParameterizedPaySim {
 
 
 	public static void main(String[] args){
+		args=new String[]{"/home/hasitha/Documents/GIT/Research/PaySimOriginalAuther/AMLSim/paramFiles/1K/conf.json"};
         if(args.length < 1){
             System.err.println("Usage: java amlsim.AMLSim [ConfFile]");
             System.exit(1);

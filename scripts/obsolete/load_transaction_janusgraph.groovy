@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicLong
 
 USER_DIR = System.getProperty('user.working_dir','.') + '/'
 DATA_DIR = USER_DIR + "outputs/"
-TX_CSV = DATA_DIR + "tx.csv"
+TX_CSV = DATA_DIR + "transactions.csv"
 CASE_CSV = DATA_DIR + "case_accts.csv"
 PROP_FILE = "janusgraph.properties"
 

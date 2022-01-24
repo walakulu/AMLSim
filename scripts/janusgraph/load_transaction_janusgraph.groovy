@@ -1,9 +1,10 @@
 import java.util.concurrent.atomic.AtomicLong
+import  java.time.*;
 
 USER_DIR = System.getProperty('user.working_dir','.') + '/'
 DATA_DIR = USER_DIR + "outputs/"
 ACCT_CSV = DATA_DIR + "accounts.csv"
-TX_CSV = DATA_DIR + "tx.csv"
+TX_CSV = DATA_DIR + "transactions.csv"
 PROP_FILE = USER_DIR + "janusgraph.properties"
 
 
@@ -82,13 +83,13 @@ line = reader.readLine()
 fields = line.split(',', -1)
 for(int i=0; i<fields.length; i++){
     switch(fields[i]){
-        case "ACCOUNT_ID": acct_idx = i; break
-        case "CUSTOMER_ID": cust_idx = i; break
-        case "INIT_BALANCE": amt_idx = i; break
-        case "COUNTRY": country_idx = i; break
-        case "ACCOUNT_TYPE": type_idx = i; break
-        case "IS_SAR": sar_idx = i; break
-        case "TX_BEHAVIOR_ID": behavior_idx = i; break
+        case "acct_id": acct_idx = i; break
+        case "dsply_nm": cust_idx = i; break
+        case "initial_deposit": amt_idx = i; break
+        case "country": country_idx = i; break
+        case "type": type_idx = i; break
+        case "prior_sar_count": sar_idx = i; break
+        case "tx_behavior_id": behavior_idx = i; break
     }
 }
 
@@ -149,14 +150,14 @@ line = reader.readLine()
 fields = line.split(',', -1)
 for(int i=0; i<fields.length; i++){
     switch(fields[i]){
-        case "TX_ID": txid_idx = i; break
-        case "SENDER_ACCOUNT_ID": orig_idx = i; break
-        case "RECEIVER_ACCOUNT_ID": dest_idx = i; break
-        case "TX_TYPE": type_idx = i; break
-        case "TX_AMOUNT": amt_idx = i; break
-        case "TIMESTAMP": date_idx = i; break
-        case "IS_SAR": sar_idx = i; break
-        case "ALERT_ID": alert_idx = i; break
+        case "tran_id": txid_idx = i; break
+        case "orig_acct": orig_idx = i; break
+        case "bene_acct": dest_idx = i; break
+        case "tx_type": type_idx = i; break
+        case "base_amt": amt_idx = i; break
+        case "tran_timestamp": date_idx = i; break
+        case "is_sar": sar_idx = i; break
+        case "alert_id": alert_idx = i; break
     }
 }
 
@@ -190,7 +191,7 @@ while (true) {
         tx_id = fields[txid_idx]
         tx_type = fields[type_idx]
         amount = fields[amt_idx].toFloat()
-        date = fields[date_idx].toLong()
+        date = Instant.parse(fields[date_idx]).getEpochSecond()
         is_sar = fields[sar_idx].toBoolean()
         alert_id = fields[alert_idx].toLong()
 
