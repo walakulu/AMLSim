@@ -3,7 +3,7 @@
     "random_seed": 0,
     "simulation_name": "1K",
     "total_steps": 720,
-    "base_date": "2021-01-01"
+    "base_date": "2022-01-01"
   },
   "default": {
     "min_amount": 100,
@@ -74,7 +74,7 @@
   "simulator": {
     "compute_diameter": false,
     "transaction_limit": 0,
-    "transaction_interval": 7,
+    "transaction_interval": 1,
     "numBranches": 1000
   },
   "visualizer": {
