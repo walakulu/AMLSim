@@ -42,8 +42,8 @@ paramFiles/test_*/
 sample/*_*/
 
 # Output data except README.md
-outputs/
-!outputs/README.md
+#outputs/
+#!outputs/README.md
 
 # Maven
 target/
